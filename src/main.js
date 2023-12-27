@@ -5,6 +5,7 @@ import store from "./stores";
 import router from './router'
 import thirdPlugin from "@/plugins/3rdPlugin";
 import globalCptRegPlugin from "@/plugins/globalCptRegPlugin";
+import i18n from './lang/index'
 
 const app = createApp(App)
 
@@ -16,5 +17,7 @@ app.use(globalCptRegPlugin)
 app.use(store)
 // 路由管理
 app.use(router)
+//语言
+app.use(i18n);
 
 app.mount('#app')

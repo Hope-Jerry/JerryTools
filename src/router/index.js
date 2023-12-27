@@ -8,8 +8,8 @@ import loginUtil from "@/utils/LoginUtil";
 // 本地存储工具
 // 文档地址：https://localforage.docschina.org/
 import localforage from 'localforage'
-import httpUtil from "@/utils/HttpUtil";
 import {useRoutesStore} from "@/stores/data/routesStore";
+import {menu_list} from "@/stores/user_data/router";
 
 // 定义路由
 // 每个路由都需要映射到一个组件
@@ -109,12 +109,17 @@ const dynaAddRoute = async () => {
     // 获取routes缓存信息
     let routes = await localforage.getItem("routes")
     if (routes == null) {
-        await httpUtil.get('/data/routes.json').then(async res => {
+        //写死路由
+        console.log(menu_list)
+        routes = await localforage.setItem('routes', menu_list)
+        /*await tauriHttp.get('/data/routes.json').then(async res => {
             // 缓存routes信息，避免每次请求服务器
             routes = await localforage.setItem('routes', res.data.data)
         }).catch(err => {
             console.error(err)
-        })
+        })*/
+    }else{
+        routes = await localforage.setItem('routes', menu_list)
     }
 
     if (routes != null) {

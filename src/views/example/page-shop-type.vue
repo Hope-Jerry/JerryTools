@@ -3,6 +3,7 @@ import {computed, onMounted, ref} from "vue";
 import {useDocumentWHStore} from "@/stores/data/documentWHStore";
 import AddShopTypeDialog from "@/components/common/add-shop-type-dialog.vue";
 import httpUtil from "@/utils/HttpUtil";
+import tauriHttp from "@/utils/TauriHttps";
 
 const documentWHStore = useDocumentWHStore()
 const loading = ref(true)
@@ -23,7 +24,7 @@ onMounted(() => {
  */
 const initTableData = () => {
     loading.value = true
-    httpUtil.get('data/shopType.json').then(async res => {
+    tauriHttp.get('data/shopType.json').then(async res => {
         // 模拟请求耗时
         await new Promise(resolve => setTimeout(resolve, 1000))
         tableData.value = res.data.data

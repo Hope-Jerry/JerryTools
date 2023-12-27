@@ -1,15 +1,32 @@
-import {fileURLToPath, URL} from 'node:url'
-import {defineConfig} from 'vite'
+import { fileURLToPath, URL } from 'node:url'
+import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import commonjs from '@rollup/plugin-commonjs'
 
 
 // Vite 配置
 // 文档地址：https://vitejs.dev/config/
 export default defineConfig({
+
     base: '',
     plugins: [
-        vue()
+        vue(),
+        commonjs()
     ],
+    optimizeDeps: {
+        include: [
+            '@tauri-apps/api',
+            'ajv-dist',
+            'immutable-json-patch',
+            'lodash-es',
+            '@fortawesome/free-regular-svg-icons',
+            'jmespath'
+        ]
+    },
+    server: {
+        strictPort: true,
+    },
+    envPrefix: ['VITE_', 'TAURI_PLATFORM', 'TAURI_ARCH', 'TAURI_FAMILY', 'TAURI_PLATFORM_VERSION', 'TAURI_PLATFORM_TYPE', 'TAURI_DEBUG'],
     resolve: {
         alias: {
             // build的时候，用于定义别名 @，它指向项目的 src 目录
@@ -17,6 +34,12 @@ export default defineConfig({
         }
     },
     build: {
+        // Tauri uses Chromium on Windows and WebKit on macOS and Linux
+        target: process.env.TAURI_PLATFORM == 'windows' ? 'chrome105' : 'safari13',
+        // don't minify for debug builds
+        minify: !process.env.TAURI_DEBUG ? 'esbuild' : false,
+        // 为调试构建生成源代码映射 (sourcemap)
+        sourcemap: !!process.env.TAURI_DEBUG,
         // 指定build输出目录
         outDir: 'docs',
         // 打包出来的区块如果超过1500KB，触发 'Some chunks are larger than 1500 KiB after minification' 警告

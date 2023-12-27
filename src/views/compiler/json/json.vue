@@ -1,21 +1,15 @@
 <template>
     <div class="page">
         <el-card shadow="never" class="vel_card_override">
-            <json-editor-vue class="editor" v-model="data"></json-editor-vue>
+            <vue-json-editor></vue-json-editor>
         </el-card>
     </div>
 </template>
-  
-<script setup>
-import JsonEditorVue from '../../../components/custom/json-editor-vue/json-editor.vue';
 
-let data = {
-    
-}
-
-const name = 'json编译器'
+<script setup lang="ts">
+import VueJsonEditor from '../../../components/custom/jsoneditor/jsoneditor.vue'
 </script>
-  
+
 <style scoped>
 .page {
     padding: 5px;

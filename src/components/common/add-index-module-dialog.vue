@@ -1,6 +1,7 @@
 <script setup>
 import {ref} from "vue";
 import httpUtil from "@/utils/HttpUtil";
+import tauriHttp from "@/utils/TauriHttps";
 import ChooseIndexModuleDialog from "@/components/common/choose-index-module-dialog.vue";
 
 // 定义传入参数
@@ -107,7 +108,7 @@ const formRef = ref(null)
                 <el-form-item label="布局类型" class="el_form_item_choose_module">
                     <el-card class="vel_card_thumb_override">
                         <el-image
-                            :src="httpUtil.defaults.baseURL + '/res/imgs/index-module-thumb-' + addModuleForm.moduleType + '.jpg'"
+                            :src="tauriHttp.baseURL + '/res/imgs/index-module-thumb-' + addModuleForm.moduleType + '.jpg'"
                             class="img_thumb"></el-image>
                     </el-card>
                     <el-button @click="showChooseIndexModuleDialog">选择模块类型</el-button>

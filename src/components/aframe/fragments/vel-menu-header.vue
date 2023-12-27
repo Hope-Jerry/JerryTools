@@ -7,7 +7,7 @@ const collapseStateStore = useCollapseStateStore();
 // 菜单折叠状态
 const collapseState = computed(() => collapseStateStore.collapseState)
 // Logo 高度
-const height = computed(() => collapseStateStore.collapseState ? '60px' : '135px')
+const height = computed(() => collapseStateStore.collapseState ? '60px' : '125px')
 // Logo size
 const logoSize = computed(() => collapseStateStore.collapseState ? 30 : 44)
 // Logo MarginBottom
@@ -41,12 +41,12 @@ watch(collapseState, (newVal) => {
             :size="logoSize"
             color="#FFFFFF"
             :style="{marginBottom:marginBottom}">
-            <ElementPlus/>
+            <Sugar/>
         </el-icon>
         <div
             class="vel_menu_header_txt"
             :style="{height:fontHeight}">
-            <span v-show="showLogoName">Jerry工具箱</span>
+            <span v-show="showLogoName">{{ $t("app.name") }}</span>
         </div>
     </section>
 </template>

@@ -38,14 +38,6 @@ const githubUrl = ref('https://github.com/mutolee/vel-admin-web')
         <td>nprogress</td>
         <td>^0.2.0</td>
       </tr>
-      <tr>
-        <td>源代码</td>
-        <td colspan="3">
-          <a :href="githubUrl">
-            <el-button :size="'small'" :type="'warning'">开源地址</el-button>
-          </a>
-        </td>
-      </tr>
     </table>
   </div>
 </template>

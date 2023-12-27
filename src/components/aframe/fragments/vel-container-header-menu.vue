@@ -7,6 +7,7 @@ import {useUserInfoStore} from "@/stores/data/userInfoStore";
 import {computed, onMounted} from "vue";
 import loginUtil from "@/utils/LoginUtil";
 import screenUtil from "@/utils/ScreenUtil";
+import { appWindow,LogicalSize } from '@tauri-apps/api/window';
 
 const router = useRouter()
 const navStore = useNavStore()
@@ -68,10 +69,45 @@ const logout = () => {
     router.push("/login")
 }
 
+
+/**
+ * 切换主题
+ */
+const setTheme = () => {
+
+}
+
+/**
+ * 程序最小化
+ */
+const windowMin = async () => {
+    await appWindow.minimize();
+}
+
+/**
+ * 程序最大化
+ */
+const windowMax = async () => {
+    let max = await appWindow.isMaximized();
+    console.log(max)
+    if(max){
+        appWindow.setSize(new LogicalSize(1000, 800));
+    }else{
+        await appWindow.maximize();
+    }
+}
+
+/**
+ * 关闭程序
+ */
+const windowClose = () => {
+    appWindow.close();
+}
+
 </script>
 
 <template>
-    <section class="vel_container_header_menu">
+    <section class="vel_container_header_menu" data-tauri-drag-region>
         <div class="vel_container_header_menu_left">
             <div
                 @click="collapseClick"
@@ -91,6 +127,38 @@ const logout = () => {
             </div>-->
         </div>
         
+        <div class="vel_container_header_menu_right">
+            <div class="vel_header_item vel_container_header_menu_right_nick">
+                <el-dropdown class="el_dropdown_override margin_left">
+                    <el-button :type="primary" text size="small" @click="setTheme">
+                        <el-icon color="#409EFC" class="no-inherit">
+                            <Sunny />
+                        </el-icon>
+                    </el-button>
+                </el-dropdown>
+                <el-dropdown class="el_dropdown_override margin_left">
+                    <el-button :type="primary" text size="small" @click="windowMin">
+                        <el-icon color="#409EFC" class="no-inherit">
+                            <Minus />
+                        </el-icon>
+                    </el-button>
+                </el-dropdown>
+                <el-dropdown class="el_dropdown_override margin_left">
+                    <el-button :type="primary" text size="small" @click="windowMax">
+                        <el-icon color="#E6A23C" class="no-inherit">
+                            <CopyDocument />
+                        </el-icon>
+                    </el-button>
+                </el-dropdown>
+                <el-dropdown class="el_dropdown_override margin_left">
+                    <el-button :type="primary" text size="small" @click="windowClose">
+                        <el-icon color="#F56C6C" class="no-inherit">
+                            <CloseBold />
+                        </el-icon>
+                    </el-button>
+                </el-dropdown>
+            </div>
+        </div>
         <!--<div class="vel_container_header_menu_right">
             <div class="vel_header_item vel_container_header_menu_right_nick">
                 <el-dropdown class="el_dropdown_override">
@@ -145,6 +213,11 @@ const logout = () => {
 </template>
 
 <style scoped>
+
+.margin_left{
+    margin-left: 12px;
+}
+
 .vel_container_header_menu {
     height: 50px;
     border-bottom: 1px solid #f4f4f4;

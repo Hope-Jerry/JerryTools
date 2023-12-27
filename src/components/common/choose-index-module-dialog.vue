@@ -1,6 +1,7 @@
 <script setup>
 import {ref} from "vue";
 import httpUtil from "@/utils/HttpUtil";
+import tauriHttp from "@/utils/TauriHttps";
 
 // 定义传入参数
 const props = defineProps(['dialog'])
@@ -109,7 +110,7 @@ const closeDialog = () => {
                             <el-card v-for="data in dataArr" :key="data.type" :shadow="data.chooseEd ? 'always': 'hover'"
                                      class="vel_card_thumb_override">
                                 <el-image @click="chooseItem(data)" class="img_thumb"
-                                          :src="httpUtil.defaults.baseURL + '/res/imgs/index-module-thumb-' + data.type + '.jpg'"></el-image>
+                                          :src="tauriHttp.baseURL + '/res/imgs/index-module-thumb-' + data.type + '.jpg'"></el-image>
                             </el-card>
                         </div>
                     </el-scrollbar>

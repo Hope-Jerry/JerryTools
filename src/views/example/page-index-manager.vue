@@ -4,6 +4,7 @@ import {onMounted, ref, watch} from "vue"
 // 文档地址：https://alfred-skyblue.github.io/vue-draggable-plus/demo/basic/
 import {VueDraggable} from 'vue-draggable-plus'
 import httpUtil from "@/utils/HttpUtil";
+import tauriHttp from "@/utils/TauriHttps";
 import AddIndexModuleDialog from "@/components/common/add-index-module-dialog.vue";
 import IndexModule1 from "@/components/common/index-module/index-module-1.vue";
 import IndexModule2 from "@/components/common/index-module/index-module-2.vue";
@@ -51,7 +52,7 @@ onMounted(() => {
  * 获取首页模块列表
  */
 const initData = ()=>{
-    httpUtil.get('/data/indexModule.json').then( async res => {
+    tauriHttp.get('/data/indexModule.json').then( async res => {
         // 模拟请求耗时
         await new Promise(resolve => setTimeout(resolve, 1000))
         list.value = res.data.data
@@ -126,7 +127,7 @@ watch(() => list.value, newVal => {
                                     </td>
                                     <td>
                                         <el-image class="module_item_img"
-                                                  :src="httpUtil.defaults.baseURL + '/res/imgs/index-module-thumb-' + item.id + '.jpg'"></el-image>
+                                                  :src="tauriHttp.baseURL + '/res/imgs/index-module-thumb-' + item.id + '.jpg'"></el-image>
                                     </td>
                                     <td>
                                         <el-text>{{item.no}}</el-text>

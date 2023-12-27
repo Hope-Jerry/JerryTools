@@ -1,4 +1,4 @@
-import {http} from "@tauri-apps/api";
+import http from '@/utils/http';
 import {Body} from "@tauri-apps/api/http";
 
 const HTTP_BASE_URL = "https://mutolee.github.io/vel-admin-web"
