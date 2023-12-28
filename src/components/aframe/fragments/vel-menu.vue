@@ -31,7 +31,7 @@ const goTo = (path) => router.push(path)
 <template>
     <section
         class="vel_menu"
-        :style="{width:width}">
+        :style="{width:width,backgroundColor:'#191a23'}">
         <vel-menu-header/>
         <div
             class="vel_menu_panel"
@@ -121,7 +121,7 @@ const goTo = (path) => router.push(path)
 
 .vel_menu_panel {
     background-color: #191a23;
-    transition: height .5s;
+    /*transition: height .5s;*/
 }
 
 .el_menu_override {

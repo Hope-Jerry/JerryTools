@@ -101,7 +101,7 @@ const windowMax = async () => {
  * 关闭程序
  */
 const windowClose = () => {
-    appWindow.close();
+    appWindow.hide();
 }
 
 </script>

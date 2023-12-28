@@ -52,6 +52,20 @@ export const menu_list = {
                     "component": "/compiler/cron/cron"
                 }
             ]
+        },
+        {
+            "id": "200",
+            "label": i18n.global.t("menus.system"),
+            "icon": "Dish",
+            "children": [
+                {
+                    "id": "200-1",
+                    "label": i18n.global.t("menus.systemShortcut"),
+                    "icon": "Lollipop",
+                    "path": "/system/shortcutkey",
+                    "component": "/system/shortcutkey/shortcutkey"
+                }
+            ]
         }
     ]
 }

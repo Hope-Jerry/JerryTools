@@ -214,7 +214,7 @@ const dropdownEvent = (command) => {
         <div class="vel_navbar_operation">
             <el-dropdown @command="dropdownEvent">
                 <span>
-                  <el-icon class="vel_navbar_operation_icon"><ArrowDown/></el-icon>
+                <el-icon class="vel_navbar_operation_icon"><ArrowDown/></el-icon>
                 </span>
                 <template #dropdown>
                     <el-dropdown-menu>
