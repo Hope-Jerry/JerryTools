@@ -1,6 +1,6 @@
 <template>
   <div class="cron-box">
-    <el-tabs v-model="activeName" type="border-card" stretch>
+    <el-tabs style="" v-model="activeName" type="border-card" stretch>
       <el-tab-pane label="秒" name="s">
         <Time lable="秒" @time="second"></Time>
       </el-tab-pane>
@@ -145,7 +145,7 @@ export default {
 .cron-box .el-tabs .el-tabs__content {
   overflow-x: hidden;
   overflow-y: auto;
-  height: 220px;
+  height: 320px;
 }
 .cron-box .el-tabs .el-tabs__content::-webkit-scrollbar {
   /*滚动条整体样式*/

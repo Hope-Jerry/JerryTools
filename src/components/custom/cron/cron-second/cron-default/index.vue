@@ -409,8 +409,8 @@
       </el-tab-pane>
     </el-tabs>
     <div class="table-box">
-      <div>生成的开始时间表达式为：{{ cronExpression }}</div>
-      <div>生成的结束时间表达式为：{{ cronExpressionEnd }}</div>
+      <div>开始时间表达式为：{{ cronExpression }}</div>
+      <div>结束时间表达式为：{{ cronExpressionEnd }}</div>
     </div>
   </div>
 </template>
@@ -845,7 +845,7 @@ export default {
 .cron-default-second .el-tabs .el-tabs__content {
   overflow-x: hidden;
   overflow-y: auto;
-  height: 307px;
+  height: 327px;
 }
 .cron-default-second .table-box {
   border-top: 1px solid #ebebeb;

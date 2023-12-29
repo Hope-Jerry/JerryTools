@@ -1,23 +1,15 @@
 <template>
     <div class="page">
-        <el-card title="表达式方式1" shadow="never" class="vel_card_override">
-            <div class="test">
-                <h2>一次生成一个表达式</h2>
+        <el-tabs v-model="activeName" type="card" class="demo-tabs" @tab-click="handleClick">
+            <el-tab-pane label="表达式方式1" name="first">
                 <div>
-                    <!-- 2.注册并且使用 @cronResult="xx" 事件可以接收到最终的表达式-->
                     <CronUi ref="CronUi" @cronResult="resultValue"></CronUi>
                 </div>
-                <p>最终生成的表达式为：{{ result }}</p>
-                
-                
-                <h2>一次生成两个表达式</h2>
-                <div>
-                    <CronUiSecond ref="CronUiSecond" @cronResult="confirmCron"></CronUiSecond>
-                    <p>最终生成的开始时间表达式为：{{ resultForm.cpmEveryStartCron }}</p>
-                    <p>最终生成的结束时间表达式为：{{ resultForm.cpmEveryEndCron }}</p>
-                </div>
-            </div>
-        </el-card>
+            </el-tab-pane>
+            <el-tab-pane label="表达式方式2" name="second">
+                <CronUiSecond ref="CronUiSecond" @cronResult="confirmCron"></CronUiSecond>
+            </el-tab-pane>
+        </el-tabs>
     </div>
 </template>
 
@@ -29,6 +21,7 @@ export default {
     components: { CronUi, CronUiSecond },
     data() {
         return {
+            activeName:"first",
             result: "",
             resultForm: {
                 cpmEveryStartCron: "",
@@ -62,9 +55,5 @@ export default {
 <style scoped>
 .page {
     padding: 5px;
-}
-
-.vel_card_override {
-    height: calc(100vh - 90px - 20px - 20px - 2px);
 }
 </style>

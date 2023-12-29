@@ -12,13 +12,6 @@ export const menu_list = {
     ],
     "menus": [
         {
-            "id": "2",
-            "label": i18n.global.t("menus.shortcut"),
-            "icon": "Sunrise",
-            "path": "/shortcut/mi",
-            "component": "/shortcut/shortcut-mi"
-        },
-        {
             "id": "100",
             "label": i18n.global.t("menus.developmentTool"),
             "icon": "Dish",
@@ -50,6 +43,13 @@ export const menu_list = {
                     "icon": "Apple",
                     "path": "/cron",
                     "component": "/compiler/cron/cron"
+                },
+                {
+                    "id": "100-7",
+                    "label": i18n.global.t("menus.regexper"),
+                    "icon": "Apple",
+                    "path": "/regexper_cy",
+                    "component": "/compiler/regexper_cy/regexper_cy"
                 }
             ]
         },

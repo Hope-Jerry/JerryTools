@@ -1,10 +1,5 @@
 <template>
-  
     <CronDefault ref="CronDefault"></CronDefault>
-    <div slot="footer">
-      <el-button size="mini" @click="confirmClick" type="primary">确定</el-button>
-      <el-button size="mini" @click="dialogVisible = false">取消</el-button>
-    </div>
 </template>
 <script>
 import CronDefault from "../cron-default/index.vue";

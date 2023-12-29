@@ -1,16 +1,12 @@
 <template>
-    <el-tabs tab-position="left" style="height: 310px;" v-model="activeName">
-      <el-tab-pane label="快捷生成" name="first">
+    <el-tabs tab-position="left" style="height: 450px;" v-model="activeName">
+      <el-tab-pane label="快捷生成" name="first" style="height: 360px;">
         <CronDefault ref="CronDefault" v-if="activeName == 'first'"></CronDefault>
       </el-tab-pane>
       <el-tab-pane label="自定义生成" name="second">
         <CronExc ref="CronExc" v-if="activeName == 'second'"></CronExc>
       </el-tab-pane>
     </el-tabs>
-    <div slot="footer">
-      <el-button size="mini" @click="confirmClick" type="primary">确定</el-button>
-      <el-button size="mini" @click="dialogVisible = false">取消</el-button>
-    </div>
 </template>
 <script>
 import CronExc from "../cron-custom/index.vue";
@@ -35,9 +31,8 @@ export default {
       } else {
         this.result = this.$refs["CronExc"].cronExpression;
       }
-      console.log(this.result);
+      //console.log(this.result);
       this.$emit("cronResult", this.result);
-      this.dialogVisible = false;
     }
   }
 };

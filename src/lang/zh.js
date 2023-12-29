@@ -11,8 +11,9 @@ export default {
         colorpicker:"颜色选择器",
         qrcode:"二维码",
         cronSelect:"cron表达式",
+        regexper:"常用正则",
 
         system:"系统设置",
-        systemShortcut:"快捷键"
+        systemShortcut:"快捷键设置"
     }
 }

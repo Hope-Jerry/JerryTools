@@ -7,6 +7,7 @@
           <div class="box-bottom">
             <el-radio label="1" size="mini" border>每天0点整执行</el-radio>
           </div>
+          
           <div class="box-bottom cycle">
             <el-radio label="2" size="mini" border>自定义时分</el-radio>
             <div style="margin-top:8px;">
