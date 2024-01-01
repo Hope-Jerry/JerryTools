@@ -221,6 +221,7 @@ const windowClose = () => {
 .vel_container_header_menu {
     height: 50px;
     border-bottom: 1px solid #f4f4f4;
+    border-top: 1px solid #f4f4f4;
     box-sizing: border-box;
     display: flex;
     align-items: center;
