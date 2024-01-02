@@ -3,7 +3,9 @@
   <div class="cron-default-first">
     <el-tabs type="border-card" v-model="activeName" @tab-click="handleClick">
       <el-tab-pane label="天" name="day">
-        <el-radio-group v-model="type" size="mini" @change="getValue">
+        <el-radio-group style="display: flex;
+                        flex-flow: column nowrap;
+                        align-items: flex-start;" v-model="type" size="mini" @change="getValue">
           <div class="box-bottom">
             <el-radio label="1" size="mini" border>每天0点整执行</el-radio>
           </div>
@@ -35,7 +37,9 @@
         </el-radio-group>
       </el-tab-pane>
       <el-tab-pane label="周" name="week">
-        <el-radio-group v-model="type" size="mini" @change="getValue">
+        <el-radio-group style="display: flex;
+                        flex-flow: column nowrap;
+                        align-items: flex-start;" v-model="type" size="mini" @change="getValue">
           <div class="box-bottom">
             <el-radio label="11" size="mini" border>每周一0点整执行</el-radio>
           </div>
@@ -91,7 +95,9 @@
         </el-radio-group>
       </el-tab-pane>
       <el-tab-pane label="月" name="month">
-        <el-radio-group v-model="type" size="mini" @change="getValue">
+        <el-radio-group style="display: flex;
+                        flex-flow: column nowrap;
+                        align-items: flex-start;" v-model="type" size="mini" @change="getValue">
           <div class="box-bottom">
             <el-radio label="21" size="mini" border>每月1号0点执行</el-radio>
           </div>

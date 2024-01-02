@@ -1,7 +1,7 @@
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 mod tray;
-use tauri::{SystemTray,GlobalShortcutManager, Manager};
+use tauri::{SystemTray,GlobalShortcutManager, Manager, LogicalSize};
 use tray::{init_tary, system_tray_loop};
 
 fn main() {
@@ -16,7 +16,12 @@ fn main() {
             //显示主窗体
             let show_main = app_move.clone();
             let _ = global_manager.register("Alt+M", move ||{
+              if show_main.is_minimized().unwrap() {
+                let _ = show_main.unminimize();
+              }
               let _ = show_main.show();
+              //置前
+              let _ = show_main.set_focus();
             });
             //隐藏主窗体
             let hide_main = app_move.clone();

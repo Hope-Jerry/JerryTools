@@ -14,7 +14,7 @@ export const menu_list = {
         {
             "id": "100",
             "label": i18n.global.t("menus.developmentTool"),
-            "icon": "Dish",
+            "icon": "SetUp",
             "children": [
                 {
                     "id": "100-1",
@@ -33,14 +33,14 @@ export const menu_list = {
                 {
                     "id": "100-5",
                     "label": i18n.global.t("menus.colorpicker"),
-                    "icon": "Apple",
+                    "icon": "Coin",
                     "path": "/colorpicker",
                     "component": "/compiler/color/color"
                 },
                 {
                     "id": "100-6",
                     "label": i18n.global.t("menus.cronSelect"),
-                    "icon": "Apple",
+                    "icon": "Pear",
                     "path": "/cron",
                     "component": "/compiler/cron/cron"
                 },
@@ -56,7 +56,7 @@ export const menu_list = {
         {
             "id": "200",
             "label": i18n.global.t("menus.system"),
-            "icon": "Dish",
+            "icon": "Setting",
             "children": [
                 {
                     "id": "200-1",

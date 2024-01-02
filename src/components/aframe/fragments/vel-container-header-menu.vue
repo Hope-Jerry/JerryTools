@@ -1,13 +1,48 @@
 <script setup>
 import localforage from "localforage"
-import {useRouter} from "vue-router";
-import {useCollapseStateStore} from "@/stores/data/collapseStateStore";
-import {useNavStore} from "@/stores/data/navStore";
-import {useUserInfoStore} from "@/stores/data/userInfoStore";
-import {computed, onMounted} from "vue";
+import { useRouter } from "vue-router";
+import { useCollapseStateStore } from "@/stores/data/collapseStateStore";
+import { useNavStore } from "@/stores/data/navStore";
+import { useUserInfoStore } from "@/stores/data/userInfoStore";
+import { computed, onMounted } from "vue";
 import loginUtil from "@/utils/LoginUtil";
 import screenUtil from "@/utils/ScreenUtil";
-import { appWindow,LogicalSize } from '@tauri-apps/api/window';
+import { appWindow, LogicalSize } from '@tauri-apps/api/window';
+import { message } from '@tauri-apps/api/dialog';
+import {
+    checkUpdate,
+    installUpdate,
+    onUpdaterEvent,
+} from '@tauri-apps/api/updater'
+import { relaunch } from '@tauri-apps/api/process'
+
+
+const unlisten = await onUpdaterEvent(({ error, status }) => {
+    // 这将记录所有更新程序事件，包括状态更新和错误。
+    console.log('Updater event', error, status)
+})
+
+try{
+    const { shouldUpdate, manifest } = await checkUpdate()
+    if (shouldUpdate) {
+    //您可以显示一个对话框，询问用户是否要在此处安装更新。
+    console.log(
+        `Installing update ${manifest?.version}, ${manifest?.date}, ${manifest?.body}`
+    )
+
+    //安装更新。这也将在Windows上重新启动应用程序！
+    await installUpdate()
+
+    // 在macOS和Linux上，您需要手动重新启动应用程序。
+    // 您可以使用此步骤显示另一个确认对话框。
+    await relaunch()
+    }
+}catch(e){
+    console.log(e)
+}
+
+unlisten()
+
 
 const router = useRouter()
 const navStore = useNavStore()
@@ -58,7 +93,7 @@ const userMessageClick = () => {
  * 全屏
  */
 const screenFull = () => {
-    screenUtil.screenFull(val => {})
+    screenUtil.screenFull(val => { })
 }
 
 /**
@@ -74,7 +109,7 @@ const logout = () => {
  * 切换主题
  */
 const setTheme = () => {
-
+    message('功能还在开发中', { title: '叮当工具箱', type: 'info' })
 }
 
 /**
@@ -90,9 +125,9 @@ const windowMin = async () => {
 const windowMax = async () => {
     let max = await appWindow.isMaximized();
     console.log(max)
-    if(max){
+    if (max) {
         appWindow.setSize(new LogicalSize(1000, 800));
-    }else{
+    } else {
         await appWindow.maximize();
     }
 }
@@ -109,11 +144,9 @@ const windowClose = () => {
 <template>
     <section class="vel_container_header_menu" data-tauri-drag-region>
         <div class="vel_container_header_menu_left">
-            <div
-                @click="collapseClick"
-                class="vel_header_item vel_container_header_menu_left_collapse">
+            <div @click="collapseClick" class="vel_header_item vel_container_header_menu_left_collapse">
                 <el-icon :size="18">
-                    <component :is="collapseState ? 'Expand' : 'Fold'"/>
+                    <component :is="collapseState ? 'Expand' : 'Fold'" />
                 </el-icon>
             </div>
             <!--<div class="vel_header_item vel_container_header_menu_left_breadcrumb">
@@ -126,32 +159,32 @@ const windowClose = () => {
                 </el-breadcrumb>
             </div>-->
         </div>
-        
+
         <div class="vel_container_header_menu_right">
             <div class="vel_header_item vel_container_header_menu_right_nick">
                 <el-dropdown class="el_dropdown_override margin_left">
-                    <el-button :type="primary" text size="small" @click="setTheme">
+                    <el-button type="primary" text size="small" @click="setTheme">
                         <el-icon color="#409EFC" class="no-inherit">
                             <Sunny />
                         </el-icon>
                     </el-button>
                 </el-dropdown>
                 <el-dropdown class="el_dropdown_override margin_left">
-                    <el-button :type="primary" text size="small" @click="windowMin">
+                    <el-button type="primary" text size="small" @click="windowMin">
                         <el-icon color="#409EFC" class="no-inherit">
                             <Minus />
                         </el-icon>
                     </el-button>
                 </el-dropdown>
                 <el-dropdown class="el_dropdown_override margin_left">
-                    <el-button :type="primary" text size="small" @click="windowMax">
+                    <el-button type="primary" text size="small" @click="windowMax">
                         <el-icon color="#E6A23C" class="no-inherit">
                             <CopyDocument />
                         </el-icon>
                     </el-button>
                 </el-dropdown>
                 <el-dropdown class="el_dropdown_override margin_left">
-                    <el-button :type="primary" text size="small" @click="windowClose">
+                    <el-button type="primary" text size="small" @click="windowClose">
                         <el-icon color="#F56C6C" class="no-inherit">
                             <CloseBold />
                         </el-icon>
@@ -213,8 +246,7 @@ const windowClose = () => {
 </template>
 
 <style scoped>
-
-.margin_left{
+.margin_left {
     margin-left: 12px;
 }
 
@@ -228,7 +260,8 @@ const windowClose = () => {
     justify-content: space-between;
 }
 
-.vel_container_header_menu_left, .vel_container_header_menu_right {
+.vel_container_header_menu_left,
+.vel_container_header_menu_right {
     display: flex;
     align-items: center;
 }
@@ -241,7 +274,7 @@ const windowClose = () => {
     transition: background-color .2s;
 }
 
-.vel_header_item:not(.vel_container_header_menu_left_breadcrumb,.vel_container_header_menu_right_nick):hover {
+.vel_header_item:not(.vel_container_header_menu_left_breadcrumb, .vel_container_header_menu_right_nick):hover {
     background-color: #F2F6FC;
     cursor: pointer;
 }
