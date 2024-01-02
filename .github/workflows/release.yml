@@ -43,9 +43,7 @@ jobs:
       run: npm run tauri build -- --platform macos --arch x64 --format dmg
 
     - name: debug release
-      run: ls -R src-tauri/target/release
-    - name: debug bundle
-      run: ls -R src-tauri/target/release/bundle
+      run: ls
 
 
     - name: Create Release
