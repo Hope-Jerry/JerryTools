@@ -27,27 +27,37 @@ jobs:
     - name: Package Tauri app for Windows
       run: npm run tauri build -- --platform windows --arch x64 --format zip
 
-    - name: Build Tauri app for Linux
-      run: npm run tauri build -- --platform linux --arch x64
+    - name: Package Tauri app for Windows (EXE)
+      run: npm run tauri build -- --platform windows --arch x64 --format exe
 
     - name: Package Tauri app for Linux
-      run: npm run tauri build -- --platform linux --arch x64 --format zip
+      run: npm run tauri build -- --platform linux --arch x64
 
-    - name: Build Tauri app for macOS
-      run: npm run tauri build -- --platform macos --arch x64
+    - name: Package Tauri app for Linux (DEB)
+      run: npm run tauri build -- --platform linux --arch x64 --format deb
 
     - name: Package Tauri app for macOS
-      run: npm run tauri build -- --platform macos --arch x64 --format zip
+      run: npm run tauri build -- --platform macos --arch x64
+
+    - name: Package Tauri app for macOS (DMG)
+      run: npm run tauri build -- --platform macos --arch x64 --format dmg
 
     - name: Create Release
       id: create_release
       uses: softprops/action-gh-release@v1
       with:
         files: |
-          target/release/*.zip
+          src-tauri/target/release/*.zip
+          src-tauri/target/release/*.exe
+          src-tauri/target/release/*.deb
+          src-tauri/target/release/*.dmg
+          src-tauri/target/release/bundle/*.zip
+          src-tauri/target/release/bundle/*.exe
+          src-tauri/target/release/bundle/*.deb
+          src-tauri/target/release/bundle/*.dmg
         token: ${{ secrets.GITHUB_TOKEN }}
       env:
-        UPLOAD_PATH: target/release/
+        UPLOAD_PATH: src-tauri/target/release/
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
