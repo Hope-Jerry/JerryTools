@@ -22,22 +22,22 @@ jobs:
       run: npm install
 
     - name: Build Tauri app for Windows
-      run: npm run tauri build -- --target win
+      run: npm run tauri build -- --platform windows --arch x64
 
     - name: Package Tauri app for Windows
-      run: npm run tauri build -- --target win --format zip
+      run: npm run tauri build -- --platform windows --arch x64 --format zip
 
     - name: Build Tauri app for macOS
-      run: npm run tauri build -- --target osx
+      run: npm run tauri build -- --platform macos --arch x64
 
     - name: Package Tauri app for macOS
-      run: npm run tauri build -- --target osx --format zip
+      run: npm run tauri build -- --platform macos --arch x64 --format zip
 
     - name: Build Tauri app for Linux
-      run: npm run tauri build -- --target linux
+      run: npm run tauri build -- --platform linux --arch x64
 
     - name: Package Tauri app for Linux
-      run: npm run tauri build -- --target linux --format zip
+      run: npm run tauri build -- --platform linux --arch x64 --format zip
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
