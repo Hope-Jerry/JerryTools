@@ -2,7 +2,7 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import commonjs from '@rollup/plugin-commonjs'
-
+import topLevelAwait from 'vite-plugin-top-level-await'
 
 // Vite 配置
 // 文档地址：https://vitejs.dev/config/
@@ -11,7 +11,11 @@ export default defineConfig({
     base: '',
     plugins: [
         vue(),
-        commonjs()
+        commonjs(),
+        topLevelAwait({
+            promiseExportName: '__tla',
+            promiseImportName: (i) => `__tla_${i}`,
+        }),
     ],
     optimizeDeps: {
         include: [
