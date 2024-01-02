@@ -21,16 +21,21 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Build Tauri app for Windows
-      run: npm run tauri build -- --platform windows --arch x64
-
-    - name: Package Tauri app for Windows
-      run: npm run tauri build -- --platform windows --arch x64 --format zip
+    - name: Build Tauri app
+      run: npm run tauri build
 
     - name: Create Release
       id: create_release
       uses: softprops/action-gh-release@v1
       with:
         files: |
-          target/release/*.zip
+          target/release/*
         token: ${{ secrets.GITHUB_TOKEN }}
+      env:
+        UPLOAD_PATH: target/release/
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: tauri-app
+        path: ${{ env.UPLOAD_PATH }}
