@@ -1,7 +1,7 @@
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 mod tray;
-use tauri::{SystemTray,GlobalShortcutManager, Manager, LogicalSize};
+use tauri::{SystemTray,GlobalShortcutManager, Manager};
 use tray::{init_tary, system_tray_loop};
 
 fn main() {
