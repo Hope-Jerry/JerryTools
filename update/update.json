@@ -1,5 +1,5 @@
 {
-    "version": "0.2.0",
+    "version": "0.1.0",
     "pub_date": "2020-09-18T12:29:53+01:00",
     "url": "https://mycompany.example.com/myapp/releases/myrelease.tar.gz",
     "signature": "Content of the relevant .sig file",

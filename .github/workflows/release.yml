@@ -64,8 +64,6 @@ jobs:
           files: |
             src-tauri/target/release/bundle/nsis/*.exe
             src-tauri/target/release/bundle/msi/*.msi
-            src-tauri/target/release/bundle/nsis/*.zip
-            src-tauri/target/release/bundle/msi/*.zip
             src-tauri/target/release/bundle/macos/*.app
             src-tauri/target/release/bundle/dmg/*.dmp
             src-tauri/target/release/bundle/macos/*.app.tar.gz
