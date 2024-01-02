@@ -45,6 +45,8 @@ jobs:
     - name: debug release
       run: ls
 
+    - name: debug src-tauri
+      run: ls -R src-tauri
 
     - name: Create Release
       id: create_release
