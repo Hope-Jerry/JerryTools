@@ -6,7 +6,7 @@
     "distDir": "../docs"
   },
   "package": {
-    "productName": "叮当工具箱",
+    "productName": "JerryTools",
     "version": "0.1.0"
   },
   "tauri": {
@@ -74,7 +74,7 @@
         "fullscreen": false,
         "height": 800,
         "resizable": true,
-        "title": "叮当工具箱",
+        "title": "JerryTools",
         "width": 1000,
         "decorations":false
       }
