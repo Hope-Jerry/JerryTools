@@ -55,3 +55,26 @@ jobs:
           releaseBody: 'See the assets to download and install this version.'
           releaseDraft: true
           prerelease: false
+
+      - name: Create Release
+        id: create_release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            src-tauri/target/release/*.zip
+            src-tauri/target/release/*.exe
+            src-tauri/target/release/*.deb
+            src-tauri/target/release/*.dmg
+            src-tauri/target/release/bundle/*.zip
+            src-tauri/target/release/bundle/*.exe
+            src-tauri/target/release/bundle/*.deb
+            src-tauri/target/release/bundle/*.dmg
+          token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          UPLOAD_PATH: src-tauri/target/release/
+  
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: tauri-app
+          path: src-tauri/target/release
