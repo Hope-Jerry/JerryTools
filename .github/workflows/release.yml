@@ -1,4 +1,4 @@
-name: Build and Package Tauri App
+name: Build and Publish Tauri App
 
 on:
   push:
@@ -39,8 +39,18 @@ jobs:
     - name: Package Tauri app for Linux
       run: npm run tauri build -- --platform linux --arch x64 --format zip
 
+    - name: Create Release
+      id: create_release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          target/release/*.zip
+        token: ${{ secrets.GITHUB_TOKEN }}
+      env:
+        UPLOAD_PATH: target/release/
+
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
         name: tauri-app
-        path: target/release
+        path: ${{ env.UPLOAD_PATH }}
