@@ -2,8 +2,8 @@ name: Build and Publish Tauri App
 
 on:
   push:
-    branches:
-      - main
+    tags:
+      - '*'
 
 jobs:
   build:
@@ -27,18 +27,6 @@ jobs:
     - name: Package Tauri app for Windows
       run: npm run tauri build -- --platform windows --arch x64 --format zip
 
-    - name: Build Tauri app for macOS
-      run: npm run tauri build -- --platform macos --arch x64
-
-    - name: Package Tauri app for macOS
-      run: npm run tauri build -- --platform macos --arch x64 --format zip
-
-    - name: Build Tauri app for Linux
-      run: npm run tauri build -- --platform linux --arch x64
-
-    - name: Package Tauri app for Linux
-      run: npm run tauri build -- --platform linux --arch x64 --format zip
-
     - name: Create Release
       id: create_release
       uses: softprops/action-gh-release@v1
@@ -46,11 +34,3 @@ jobs:
         files: |
           target/release/*.zip
         token: ${{ secrets.GITHUB_TOKEN }}
-      env:
-        UPLOAD_PATH: target/release/
-
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        name: tauri-app
-        path: ${{ env.UPLOAD_PATH }}
