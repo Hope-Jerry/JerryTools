@@ -61,7 +61,7 @@
     "updater": {
       "active": true,
       "endpoints": [
-        "https://raw.githubusercontent.com/Hope-Jerry/jerryTools/main/update/update.json"
+        "https://raw.githubusercontent.com/Hope-Jerry/JerryTools/main/update/update.json"
       ],
       "dialog": true,
       "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDFFRkY2QjZBQzU3MTVFODYKUldTR1huSEZhbXYvSG8zNGg1U2pENHhVZElySFNIRnRxLzRhdUVyTm5Sc3NGYVNNSGlKNFNOc2sK",

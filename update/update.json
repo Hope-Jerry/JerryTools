@@ -1,7 +1,23 @@
 {
-    "version": "0.1.1",
-    "pub_date": "2020-09-18T12:29:53+01:00",
-    "url": "https://github.com/Hope-Jerry/JerryTools/releases/download/v0.2.20/JerryTools_0.1.0_x64_zh-CN.msi",
-    "signature": "Content of the relevant .sig file",
-    "notes": "These are some release notes"
+    "version": "v0.2.0",
+    "notes": "测试更新程序",
+    "pub_date": "2024-01-03T19:25:57Z",
+    "platforms": {
+        "darwin-x86_64": {
+            "signature": "Content of app.tar.gz.sig",
+            "url": "https://github.com/username/reponame/releases/download/v1.0.0/app-x86_64.app.tar.gz"
+        },
+        "darwin-aarch64": {
+            "signature": "Content of app.tar.gz.sig",
+            "url": "https://github.com/username/reponame/releases/download/v1.0.0/app-aarch64.app.tar.gz"
+        },
+        "linux-x86_64": {
+            "signature": "Content of app.AppImage.tar.gz.sig",
+            "url": "https://github.com/username/reponame/releases/download/v1.0.0/app-amd64.AppImage.tar.gz"
+        },
+        "windows-x86_64": {
+            "signature": "Content of app.msi.sig",
+            "url": "https://github.com/username/reponame/releases/download/v1.0.0/app-x64.msi.zip"
+        }
+    }
 }
