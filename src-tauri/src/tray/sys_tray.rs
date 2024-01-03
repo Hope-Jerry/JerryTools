@@ -7,9 +7,9 @@ pub fn init_tary(system_tray: SystemTray) -> SystemTray{
     let quit = CustomMenuItem::new("quit".to_string(), "Quit");
     let hide = CustomMenuItem::new("hide".to_string(), "Hide");
     let tray_menu = SystemTrayMenu::new()
-        .add_item(quit)
+        .add_item(hide)
         .add_native_item(SystemTrayMenuItem::Separator)
-        .add_item(hide);
+        .add_item(quit);
 
     let tray = system_tray.with_menu(tray_menu);
 
