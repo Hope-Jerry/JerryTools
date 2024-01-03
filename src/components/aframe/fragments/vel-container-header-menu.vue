@@ -121,7 +121,7 @@ onUpdaterEvent(res => {
 
 
 function updater(){
-    console.log("升级");
+    console.log("升级程序");
     checkUpdate().then(res => {
         console.log(res)
     })
