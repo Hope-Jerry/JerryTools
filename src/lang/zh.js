@@ -2,7 +2,7 @@
 // 定义中文语言包对象
 export default {
     app:{
-        name:"叮当工具箱"
+        name:"JerryTools"
     },
     menus: {
         shortcut:"快捷",
