@@ -24,9 +24,9 @@
 
 
 #### 软件截图
-![常用正则](/images/screenshot/json处理.png "Magic Gardens")
-![常用正则](/images/screenshot/常用正则.png "Magic Gardens")
-![常用正则](/images/screenshot/颜色选择.png "Magic Gardens")
-![常用正则](/images/screenshot/cron表达式.png "Magic Gardens")
-![常用正则](/images/screenshot/快捷键.png "Magic Gardens")
+![常用正则](/images/screenshot/json处理.png "JSON处理")
+![常用正则](/images/screenshot/常用正则.png "常用正则")
+![常用正则](/images/screenshot/颜色选择.png "颜色选择")
+![常用正则](/images/screenshot/cron表达式.png "cron表达式")
+![常用正则](/images/screenshot/快捷键.png "快捷键")
 
