@@ -24,8 +24,10 @@ pub fn system_tray_loop(app: &AppHandle,event: SystemTrayEvent){
         //双击事件
         SystemTrayEvent::DoubleClick { .. } => {
             let windows = app.windows();
-            for (key,win) in windows {
-                println!("key:{}",key);
+            for (_key,win) in windows {
+                if win.is_minimized().unwrap() {
+                    let _ = win.unminimize();
+                }
                 let _ = win.show();
                 let _ = win.set_focus();
             }
