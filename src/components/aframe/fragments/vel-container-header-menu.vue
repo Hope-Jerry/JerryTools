@@ -113,6 +113,13 @@ import {
 } from '@tauri-apps/api/updater'
 import { relaunch } from '@tauri-apps/api/process'
 
+
+onUpdaterEvent(res => {
+    console.log(res)
+})
+
+
+
 function updater(){
     console.log("升级");
     checkUpdate().then(res => {
