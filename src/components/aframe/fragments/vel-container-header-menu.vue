@@ -74,7 +74,7 @@ const logout = () => {
  * 切换主题
  */
 const setTheme = () => {
-    message('功能还在开发中', { title: '叮当工具箱', type: 'info' })
+    message('功能还在开发中', { title: 'JerryTools', type: 'info' })
 }
 
 /**
