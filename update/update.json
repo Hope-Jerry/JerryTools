@@ -17,7 +17,7 @@
         },
         "windows-x86_64": {
             "signature": "https://github.com/Hope-Jerry/JerryTools/releases/download/v0.2.32/JerryTools_0.1.0_x64_zh-CN.msi.zip.sig",
-            "url": "https://github.com/Hope-Jerry/JerryTools/releases/download/v0.2.32/JerryTools_0.1.0_x64_zh-CN.msi.zip"
+            "url": "https://github.com/Hope-Jerry/JerryTools/releases/download/v0.2.32/JerryTools_0.1.0_x64_zh-CN.msi"
         }
     }
 }
