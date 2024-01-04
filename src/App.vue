@@ -1,5 +1,5 @@
 <script>
-
+//window.addEventListener("contextmenu", (e) => e.preventDefault(), false);
 </script>
 
 <template>

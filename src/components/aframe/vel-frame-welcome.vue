@@ -1,39 +1,106 @@
-<script setup>
-import tauriHttp from "@/utils/TauriHttps";
-import {useUserInfoStore} from "@/stores/data/userInfoStore";
-import {computed} from "vue";
-
+<script>
 import TableDemo1 from '@/components/common/table-demo-1.vue'
+import { getVersion } from '@tauri-apps/api/app';
+import { getAssetURL } from '../../utils/toolsutils';
 
-const userInfoStore = useUserInfoStore()
+export default {
+    components: { TableDemo1 },
+    data() {
+        return {
+            appVersion: "",
+            funList: [
+                {
+                    imageUrl: getAssetURL("json.svg"),
+                    name: "JSON",
+                    path:""
+                },
+                {
+                    imageUrl: getAssetURL("tiaoseban.svg"),
+                    name: "调色板",
+                    path:""
+                },
+                {
+                    imageUrl: getAssetURL("Cronometer.svg"),
+                    name: "CRON",
+                    path:""
+                },
+                {
+                    imageUrl: getAssetURL("zhengze.svg"),
+                    name: "正则表达式",
+                    path:""
+                },
+                {
+                    imageUrl: getAssetURL("tiaoseban.svg"),
+                    name: "二维码",
+                    path:""
+                }
+            ]
+        }
+    },
+    mounted() {
+        getVersion().then(version => {
+            console.log("version:", version)
+            this.appVersion = "v"+version;
+        })
+    },
+    methods: {
 
-const githubUrl = tauriHttp.baseURL
-const avatarUrl = tauriHttp.baseURL + '/res/imgs/jimeng.webp'
+    }
+}
 
-// 用户名称
-const userNick = computed(() => userInfoStore.userInfo.userNick)
 
 </script>
 
 <template>
     <div class="welcome_panel">
-        <el-row>            
+        <el-row>
             <el-col :xs="24" :sm="24" :md="24" :lg="10" :xl="10">
                 <el-card shadow="hover" class="vel_el_card_override">
                     <template #header>
                         <div class="card-header">
                             <div class="vel_card_header_left">
                                 <el-icon :size="20">
-                                    <Sugar/>
+                                    <Sugar />
                                 </el-icon>
-                                <span>软件信息</span>
+                                <span>JerryTools {{ appVersion }}</span>
                             </div>
                             <div class="vel_card_header_right">
-                                <el-tag type="info">V 0.0.1</el-tag>
+                                <!--<el-tag type="info"></el-tag>-->
                             </div>
                         </div>
                     </template>
-                    <table-demo1></table-demo1>
+                    <div class="item text">JSON格式化</div>
+                    <div class="item text">CRON表达式</div>
+                    <div class="item text">常用正则</div>
+                    <div class="item text">调色板</div>
+                </el-card>
+                <el-card shadow="hover" class="vel_el_card_override" style="margin-top: 5px;">
+                    <template #header>
+                        <div class="card-header">
+                            <div class="vel_card_header_left">
+                                <el-icon :size="20">
+                                    <Sugar />
+                                </el-icon>
+                                <span>快捷</span>
+                            </div>
+                            <div class="vel_card_header_right">
+                                <!--<el-tag type="info"></el-tag>-->
+                            </div>
+                        </div>
+                    </template>
+                    <el-row :gutter="20">
+                        <el-col :span="4" v-for="item in funList">
+                            <div>
+                                <el-card :body-style="{ padding: '0px' }">
+                                    <img :src="item.imageUrl"
+                                        class="image" />
+                                    <div style="padding: 0px;text-align: center;">
+                                        <span>{{ item.name }}</span>
+                                    </div>
+                                </el-card>
+                            </div>
+                        </el-col>
+                    </el-row>
                 </el-card>
             </el-col>
         </el-row>
@@ -43,6 +110,19 @@ const userNick = computed(() => userInfoStore.userInfo.userNick)
 <style scoped>
 .welcome_panel {
     padding: 20px 0 0 20px;
+}
+
+.text {
+    font-size: 14px;
+}
+
+.item {
+    margin-bottom: 18px;
+}
+
+.image {
+    width: 100%;
+    display: block;
 }
 
 :deep(.vel_el_card_introduce) .el-card__body {
@@ -106,5 +186,4 @@ const userNick = computed(() => userInfoStore.userInfo.userNick)
 :deep(.vel_el_card_button) .el-card__body p {
     padding-top: 15px;
 }
-
 </style>

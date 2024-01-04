@@ -10,6 +10,7 @@ import screenUtil from "@/utils/ScreenUtil";
 import { appWindow, LogicalSize } from '@tauri-apps/api/window';
 import { message } from '@tauri-apps/api/dialog';
 
+
 const router = useRouter()
 const navStore = useNavStore()
 const userInfoStore = useUserInfoStore()
@@ -108,10 +109,8 @@ const windowClose = () => {
 <script>
 import {
     checkUpdate,
-    installUpdate,
     onUpdaterEvent,
 } from '@tauri-apps/api/updater'
-import { relaunch } from '@tauri-apps/api/process'
 
 
 onUpdaterEvent(res => {
@@ -150,7 +149,8 @@ function updater(){
 
         <div class="vel_container_header_menu_right">
             <div class="vel_header_item vel_container_header_menu_right_nick">
-                <el-dropdown class="el_dropdown_override margin_left">
+                
+                <!--<el-dropdown class="el_dropdown_override margin_left">
                     <el-button type="primary" text size="small" @click="updater">
                         <el-icon color="#409EFC" class="no-inherit">
                             <Upload />
@@ -163,7 +163,8 @@ function updater(){
                             <Sunny />
                         </el-icon>
                     </el-button>
-                </el-dropdown>
+                </el-dropdown>-->
+                
                 <el-dropdown class="el_dropdown_override margin_left">
                     <el-button type="primary" text size="small" @click="windowMin">
                         <el-icon color="#409EFC" class="no-inherit">

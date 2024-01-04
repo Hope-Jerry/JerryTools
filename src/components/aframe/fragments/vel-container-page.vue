@@ -1,7 +1,6 @@
 <script setup>
 import {computed} from 'vue'
 import {useNavStore} from "@/stores/data/navStore";
-
 const navStore = useNavStore()
 // 获取可被缓存的路由映射的组件的名称<br>
 // 当页面组件需要缓存，那么加入到该集合中，比如新打开页面的时候<br>

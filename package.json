@@ -31,6 +31,7 @@
     "vanilla-jsoneditor": "file:dept/svelte-jsoneditor",
     "vue": "^3.3.4",
     "vue-codemirror": "^6.1.1",
+    "vue-demi": "^0.14.6",
     "vue-draggable-plus": "^0.2.7",
     "vue-echarts": "^6.6.1",
     "vue-i18n": "^9.8.0",

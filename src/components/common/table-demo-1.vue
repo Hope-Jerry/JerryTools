@@ -1,63 +1,36 @@
 <script setup>
 import {ref} from "vue";
 
-const githubUrl = ref('https://github.com/mutolee/vel-admin-web')
-
 </script>
 
 <template>
-  <div style="height: 260px">
-    <table class="table">
-      <tr>
-        <td>vue</td>
-        <td>^3.3.4</td>
-        <td>vite</td>
-        <td>^4.4.11</td>
-      </tr>
-      <tr>
-        <td>vue-router</td>
-        <td>^4.2.5</td>
-        <td>pinia</td>
-        <td>^2.1.7</td>
-      </tr>
-      <tr>
-        <td>element-plus</td>
-        <td>^2.4.2</td>
-        <td>axios</td>
-        <td>^1.6.0</td>
-      </tr>
-      <tr>
-        <td>echarts</td>
-        <td>^5.4.3</td>
-        <td>localforage</td>
-        <td>^1.10.0</td>
-      </tr>
-      <tr>
-        <td>js-cookie</td>
-        <td>^3.0.5</td>
-        <td>nprogress</td>
-        <td>^0.2.0</td>
-      </tr>
-    </table>
+  <div>
+    <el-card class="box-card">
+    <template #header>
+      <div class="card-header">
+        <span>支持功能说明</span>
+      </div>
+    </template>
+    <div class="item text">JSON格式化</div>
+    <div class="item text">CRON表达式</div>
+    <div class="item text">常用正则</div>
+    <div class="item text">调色板</div>
+  </el-card>
   </div>
 </template>
 
 <style scoped>
-.table {
-  width: 100%;
-  color: #666;
-  border-collapse: collapse;
-  background-color: #fff;
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.table td {
-  padding: 9px 15px;
-  border: 1px solid #e6e6e6;
+.text {
+  font-size: 14px;
 }
 
-.table td:nth-child(odd) {
-  text-align: right;
-  width: 27%;
-  background-color: #f7f7f7;
+.item {
+  margin-bottom: 18px;
 }
 </style>
