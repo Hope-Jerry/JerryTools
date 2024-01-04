@@ -7,7 +7,7 @@
   },
   "package": {
     "productName": "JerryTools",
-    "version": "0.1.0"
+    "version": "0.1.1"
   },
   "tauri": {
     "allowlist": {
@@ -64,7 +64,7 @@
         "https://raw.githubusercontent.com/Hope-Jerry/JerryTools/main/update/update.json"
       ],
       "dialog": true,
-      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDFFRkY2QjZBQzU3MTVFODYKUldTR1huSEZhbXYvSG8zNGg1U2pENHhVZElySFNIRnRxLzRhdUVyTm5Sc3NGYVNNSGlKNFNOc2sK",
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEUwQjA5MEY0N0M3MURBMkMKUldRczJuRjg5SkN3NEgydTU0VGl3c2ZLTHNHcHRMWndjUEJJYWplUE5BNkJtSy9JYnNPT3pzVXkK",
       "windows": {
         "installMode": "passive"
       }
