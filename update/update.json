@@ -4,12 +4,12 @@
     "pub_date": "2024-01-03T19:25:57Z",
     "platforms": {
         "darwin-x86_64": {
-            "signature": "https://github.com/Hope-Jerry/JerryTools/releases/download/v0.6.0/JerryTools_0.1.0_x64_zh-CN.msi.zip.sig",
-            "url": "https://github.com/Hope-Jerry/JerryTools/releases/download/v0.6.0/JerryTools_0.1.0_x64_zh-CN.msi.zip"
+            "signature": "https://github.com/Hope-Jerry/JerryTools/releases/download/v0.6.1/JerryTools_0.1.1_x64_zh-CN.msi.zip.sig",
+            "url": "https://github.com/Hope-Jerry/JerryTools/releases/download/v0.6.1/JerryTools_0.1.1_x64_zh-CN.msi.zip"
         },
         "darwin-aarch64": {
-            "signature": "https://github.com/Hope-Jerry/JerryTools/releases/download/v0.6.0/JerryTools_0.1.0_x64_zh-CN.msi.zip.sig",
-            "url": "https://github.com/Hope-Jerry/JerryTools/releases/download/v0.6.0/JerryTools_0.1.0_x64_zh-CN.msi.zip"
+            "signature": "https://github.com/Hope-Jerry/JerryTools/releases/download/v0.6.1/JerryTools_0.1.1_x64_zh-CN.msi.zip.sig",
+            "url": "https://github.com/Hope-Jerry/JerryTools/releases/download/v0.6.1/JerryTools_0.1.1_x64_zh-CN.msi.zip"
         },
         "linux-x86_64": {
             "signature": "https://github.com/Hope-Jerry/JerryTools/releases/download/v0.6.0/JerryTools_0.1.0_x64_zh-CN.msi.zip.sig",
