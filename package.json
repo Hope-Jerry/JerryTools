@@ -9,6 +9,7 @@
     "tauri": "vite"
   },
   "dependencies": {
+    "@chenfengyuan/vue-qrcode": "^2.0.0",
     "@codemirror/lang-html": "^6.4.7",
     "@codemirror/lang-javascript": "^6.2.1",
     "@codemirror/lang-json": "^6.0.1",
@@ -28,8 +29,10 @@
     "localforage": "^1.10.0",
     "nprogress": "^0.2.0",
     "pinia": "^2.1.7",
+    "qrcode": "^1.5.3",
+    "qrcode.vue": "^3.4.1",
     "vanilla-jsoneditor": "file:dept/svelte-jsoneditor",
-    "vue": "^3.3.4",
+    "vue": "^3.4.5",
     "vue-codemirror": "^6.1.1",
     "vue-demi": "^0.14.6",
     "vue-draggable-plus": "^0.2.7",

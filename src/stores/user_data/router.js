@@ -28,7 +28,7 @@ export const menu_list = {
                     "label": i18n.global.t("menus.qrcode"),
                     "icon": "Orange",
                     "path": "/jieshao",
-                    "component": "/page-jieshao"
+                    "component": "/compiler/qrcode/qrcode"
                 },
                 {
                     "id": "100-5",

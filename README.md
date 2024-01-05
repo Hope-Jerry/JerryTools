@@ -29,4 +29,5 @@
 ![常用正则](/images/screenshot/颜色选择.png "颜色选择")
 ![常用正则](/images/screenshot/cron表达式.png "cron表达式")
 ![常用正则](/images/screenshot/快捷键.png "快捷键")
+![常用正则](/images/screenshot/二维码.png "二维码")
 
