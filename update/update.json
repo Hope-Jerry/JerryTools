@@ -1,7 +1,7 @@
 {
-    "version": "v0.1.0",
-    "notes": "测试更新程序,升级程序，更改秘钥，更改版本为v0.1.0",
-    "pub_date": "2024-01-03T19:25:57Z",
+    "version": "v0.1.1",
+    "notes": "新增二维码功能",
+    "pub_date": "2024-01-05T19:25:57Z",
     "platforms": {
         "darwin-x86_64": {
             "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVRczJuRjg5SkN3NEZSMm5ycGQzYnlBK3BNSm4vREhaRzUzempsOWwza1Q4djBDRHRPYW1CZFNWRFowelhMb0c5Qi9QeFlIVFBvNXdZcXJnaW1QWWRYaVlUUVNvejQrUXdzPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzA0MzM3NzYzCWZpbGU6SmVycnlUb29sc18wLjEuMV94NjRfemgtQ04ubXNpLnppcApIdUJGZmI0N2lDNVZuY0NlWFJxTVYxd0FvbzlhZ21CZVZuczV2T056NkJQaFBzcHZGRTJYaTYydkd3YnBKVThCRXIrUjhnU056RnQ1S0ZBWHU0cHlDQT09Cg==",
